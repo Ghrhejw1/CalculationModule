@@ -1,0 +1,25 @@
+﻿<Window x:Class="CalculationModule.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:CalculationModule"
+        mc:Ignorable="d"
+         Title="Анализ данных" Height="600" Width="800">
+    <Grid>
+        <DockPanel>
+            <Menu DockPanel.Dock="Top">
+                <MenuItem Header="Файл">
+                    <MenuItem Header="Открыть" Command="{Binding OpenCommand}" />
+                    <MenuItem Header="Сохранить" Command="{Binding SaveCommand}" />
+                    <Separator />
+                    <MenuItem Header="Выход" Command="{Binding ExitCommand}" />
+                </MenuItem>
+                <MenuItem Header="Справка">
+                    <MenuItem Header="О программе" Command="{Binding AboutCommand}" />
+                </MenuItem>
+            </Menu>
+            <Frame Name="MainFrame" Content="{Binding CurrentView}" />
+        </DockPanel>
+    </Grid>
+</Window>
