@@ -3,23 +3,31 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:CalculationModule"
+        xmlns:local="clr-namespace:CalculationModule" xmlns:gmap="clr-namespace:GMap.NET.WindowsPresentation;assembly=GMap.NET.WindowsPresentation"
         mc:Ignorable="d"
-         Title="Анализ данных" Height="600" Width="800">
+        Title="MainWindow" Height="950" Width="1600">
     <Grid>
-        <DockPanel>
-            <Menu DockPanel.Dock="Top">
-                <MenuItem Header="Файл">
-                    <MenuItem Header="Открыть" Command="{Binding OpenCommand}" />
-                    <MenuItem Header="Сохранить" Command="{Binding SaveCommand}" />
-                    <Separator />
-                    <MenuItem Header="Выход" Command="{Binding ExitCommand}" />
-                </MenuItem>
-                <MenuItem Header="Справка">
-                    <MenuItem Header="О программе" Command="{Binding AboutCommand}" />
-                </MenuItem>
-            </Menu>
-            <Frame Name="MainFrame" Content="{Binding CurrentView}" />
-        </DockPanel>
-    </Grid>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="Auto"/>
+        </Grid.ColumnDefinitions>
+        <gmap:GMapControl x:Name="MapControl" Grid.Column="0" />
+        <StackPanel Grid.Column="1" Orientation="Vertical" Margin="10" VerticalAlignment="Top">
+            <ComboBox x:Name="YearComboBox" Width="150" Margin="0,0,0,10" SelectedIndex="0">
+                <ComboBoxItem>Выбор года</ComboBoxItem>
+                <ComboBoxItem>2021</ComboBoxItem>
+                <ComboBoxItem>2022</ComboBoxItem>
+                <ComboBoxItem>2023</ComboBoxItem>
+            </ComboBox>
+            <ComboBox x:Name="MetalComboBox" Width="150" Margin="0,0,0,10" SelectedIndex="0">
+                <ComboBoxItem>Выбор металла</ComboBoxItem>
+                <ComboBoxItem>Gold</ComboBoxItem>
+                <ComboBoxItem>Silver</ComboBoxItem>
+                <ComboBoxItem>Copper</ComboBoxItem>
+            </ComboBox>
+            <Button x:Name="AddPointButton" Content="Добавить точку" Width="150" Margin="0,0,0,10" Click="AddPointButton_Click"/>
+            <Button x:Name="StatsPageButton" Content="Статистика" Width="150" Margin="0,0,0,10" Click="StatsPageButton_Click"/>
+        </StackPanel>
+        </Grid>
 </Window>
