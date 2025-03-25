@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace CalculationModule.Data
 {
-    class IDataService
+    public class IDataService
     {
+
     }
 }
